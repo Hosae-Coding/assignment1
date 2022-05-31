@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-import app from './app'
+import app from './Server/Config/app'
 import debug from 'debug';
 debug('nassignment1:server');
 import http from 'http'

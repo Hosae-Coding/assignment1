@@ -1,7 +1,7 @@
 {
   "name": "nassignment1",
-  "version": "0.0.1",
-  "description": "assignment1",
+  "version": "0.0.2",
+  "description": "Node class",
   "private": true,
   "scripts": {
     "start": "node server.js"

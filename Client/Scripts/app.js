@@ -1,4 +1,4 @@
-'use strict';
+/* app.js, hongseok kim, 301213545, Jun.04.2022 */
 (function () {
    function Start() {
       console.log('App Started!');
@@ -15,8 +15,3 @@
    }
    window.addEventListener('load', Start);
 })();
-//# sourceMappingURL=app.js.map
-
-function newPage() {
-   alert('Success to submit');
-}

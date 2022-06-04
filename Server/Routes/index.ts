@@ -4,13 +4,13 @@ const router = express.Router();
 
 router.get('/', function(req: express.Request, res: express.Response, next: express.NextFunction) 
 {
-  res.render('index', { title: 'Home', page: 'home' });
+  res.render('index', { title: 'Home', page: 'home' , intro:'I am Hongseok kim !'        });
 });
 
 
 router.get('/home', function(req: express.Request, res: express.Response, next: express.NextFunction) 
 {
-  res.render('index', { title: 'Home', page: 'home' , });
+  res.render('index', { title: 'Home', page: 'home' ,intro:'I am Hongseok kim !' });
 });
 
 
@@ -22,7 +22,7 @@ router.get('/about', function(req: express.Request, res: express.Response, next:
 
 router.get('/project', function(req: express.Request, res: express.Response, next: express.NextFunction) 
 {
-  res.render('index', { title: 'Project', page: 'project' });
+  res.render('index', { title: 'Project', page: 'project' ,intro:'I am Hongseok !'});
 });
 
 
@@ -34,7 +34,7 @@ router.get('/service', function(req: express.Request, res: express.Response, nex
 
 router.get('/contact', function(req: express.Request, res: express.Response, next: express.NextFunction) 
 {
-  res.render('index', { title: 'Contact', page: 'contact' });
+  res.render('index', { title: 'Contact', page: 'contact' , contact:"Please contact me !"});
 });
 
 export default router;

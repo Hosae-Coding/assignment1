@@ -1,11 +1,15 @@
-<h1>This is my <%= page%></h1>
+<div class="container pt-3">
 
-<form>      
-    <input name="name" type="text" class="feedback-input" placeholder="Name" style="color: black;" />   
-    <input name="email" type="text" class="feedback-input" placeholder="Email" style="color: black; "/>
-    <textarea name="text" class="feedback-input" placeholder="Comment" style="color: black; "></textarea>
-    <button class="btn">
-
-        <input type="submit" value="SUBMIT" onclick='newPage()'/>
-    </button>
-  </form>
+    <h1>This is my <%= page%> Page</h1>
+    <h2> <%= contact %></h2>
+    
+    <form>      
+        <input name="name" type="text" class="feedback-input" placeholder="Name" style="color: black;" />   
+        <input name="email" type="text" class="feedback-input" placeholder="Email" style="color: black; "/>
+        <textarea name="text" class="feedback-input" placeholder="Comment" style="color: black; "></textarea>
+        <button class="btn">
+            
+            <input type="submit" value="SUBMIT" onclick='newPage()'/>
+        </button>
+    </form>
+</div>

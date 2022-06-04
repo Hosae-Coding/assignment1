@@ -15,3 +15,7 @@
    }
    window.addEventListener('load', Start);
 })();
+
+function newPage() {
+   alert('success to submit');
+}

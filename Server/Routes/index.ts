@@ -1,7 +1,7 @@
-import express, { NextFunction } from 'express';
+import express from 'express';
 const router = express.Router();
 
-import {DisplayHomePage,DisplayAboutPage,DisplayProjectPage,DisplayServicePage,DisplayContactPage} from '../Controllers/index';
+import {DisplayHomePage,DisplayAboutPage,DisplayProjectPage,DisplayServicePage,DisplayContactPage, DisplayMovieList} from '../Controllers/index';
 
 
 router.get('/',DisplayHomePage);
@@ -21,5 +21,7 @@ router.get('/service',DisplayServicePage );
 
 router.get('/contact',DisplayContactPage );
 ;
+
+router.get('/movie-list',DisplayMovieList);
 
 export default router;

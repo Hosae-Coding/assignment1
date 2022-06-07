@@ -26,6 +26,8 @@ db.on("error", function()
 {
   console.error(`Connection Error`);
 });
+
+
 // view engine setup
 app.set('views', path.join(__dirname, '../Views'));
 app.set('view engine', 'ejs');

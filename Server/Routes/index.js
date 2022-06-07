@@ -13,5 +13,6 @@ router.get('/project', index_1.DisplayProjectPage);
 router.get('/service', index_1.DisplayServicePage);
 router.get('/contact', index_1.DisplayContactPage);
 ;
+router.get('/movie-list', index_1.DisplayMovieList);
 exports.default = router;
 //# sourceMappingURL=index.js.map

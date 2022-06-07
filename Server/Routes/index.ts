@@ -1,40 +1,25 @@
 import express, { NextFunction } from 'express';
 const router = express.Router();
 
-
-router.get('/', function(req: express.Request, res: express.Response, next: express.NextFunction) 
-{
-  res.render('index', { title: 'Home', page: 'home' , intro:'I am Hongseok kim !'        });
-});
+import {DisplayHomePage,DisplayAboutPage,DisplayProjectPage,DisplayServicePage,DisplayContactPage} from '../Controllers/index';
 
 
-router.get('/home', function(req: express.Request, res: express.Response, next: express.NextFunction) 
-{
-  res.render('index', { title: 'Home', page: 'home' ,intro:'I am Hongseok kim !' });
-});
+router.get('/',DisplayHomePage);
 
 
-router.get('/about', function(req: express.Request, res: express.Response, next: express.NextFunction) 
-{
-  res.render('index', { title: 'About', page: 'about' });
-});
+router.get('/home', DisplayHomePage);
 
 
-router.get('/project', function(req: express.Request, res: express.Response, next: express.NextFunction) 
-{
-  res.render('index', { title: 'Project', page: 'project' ,intro:'I am Hongseok !'});
-});
+router.get('/about',DisplayAboutPage );
 
 
-router.get('/service', function(req: express.Request, res: express.Response, next: express.NextFunction) 
-{
-  res.render('index', { title: 'Services', page: 'services' });
-});
+router.get('/project', DisplayProjectPage);
 
 
-router.get('/contact', function(req: express.Request, res: express.Response, next: express.NextFunction) 
-{
-  res.render('index', { title: 'Contact', page: 'contact' , contact:"Please contact me !"});
-});
+router.get('/service',DisplayServicePage );
+
+
+router.get('/contact',DisplayContactPage );
+;
 
 export default router;

@@ -13,6 +13,9 @@ const app = express();
 
 // Step 2 - Complete the DB 
 import * as DBConfig from './db';
+import movieListRouter from '../Routes/movie-list'
+
+
 mongoose.connect(DBConfig.LocalURI);
 const db = mongoose.connection; 
 
@@ -40,6 +43,7 @@ app.use(express.static(path.join(__dirname, '../../Client/')));
 app.use(express.static(path.join(__dirname,'../../node_modules')))
 
 app.use('/', indexRouter);
+app.use('/',movieListRouter)
 
 
 // catch 404 and forward to error handler

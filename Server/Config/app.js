@@ -35,6 +35,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const index_1 = __importDefault(require("../Routes/index"));
 const app = (0, express_1.default)();
 const DBConfig = __importStar(require("./db"));
+const movie_list_1 = __importDefault(require("../Routes/movie-list"));
 mongoose_1.default.connect(DBConfig.LocalURI);
 const db = mongoose_1.default.connection;
 db.on("open", function () {
@@ -52,6 +53,7 @@ app.use((0, cookie_parser_1.default)());
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../Client/')));
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../node_modules')));
 app.use('/', index_1.default);
+app.use('/', movie_list_1.default);
 app.use(function (req, res, next) {
     next((0, http_errors_1.default)(404));
 });

@@ -1,7 +1,7 @@
 {
   "name": "comm299",
   "version": "0.0.5",
-  "description": "Node class",
+  "description": "Node class w6",
   "private": true,
   "scripts": {
     "start": "node server.js"
@@ -21,6 +21,7 @@
     "debug": "^4.3.4",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-session": "^1.17.3",
     "http-errors": "^2.0.0",
     "jquery": "^3.6.0",
     "mongoose": "^6.3.5",
@@ -37,6 +38,7 @@
     "@types/debug": "^4.1.7",
     "@types/ejs": "^3.1.1",
     "@types/express": "^4.17.13",
+    "@types/express-session": "^1.17.4",
     "@types/http-errors": "^1.8.2",
     "@types/jquery": "^3.5.14",
     "@types/mime-types": "^2.1.1",

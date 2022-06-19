@@ -32,9 +32,37 @@ function DisplayEditPage(req, res, next) {
 }
 exports.DisplayEditPage = DisplayEditPage;
 function ProcessAddPage(req, res, next) {
+    let newMovie = new movie_1.default({
+        "Name": req.body.movieName,
+        "Director": req.body.movieDirector,
+        "Year": req.body.movieYear,
+        "Rating": req.body.movieRating
+    });
+    movie_1.default.create(newMovie, function (err) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect('/movie-list');
+    });
 }
 exports.ProcessAddPage = ProcessAddPage;
 function ProcessEditPage(req, res, next) {
+    let id = req.params.id;
+    let updateMovie = new movie_1.default({
+        "_id": id,
+        "Name": req.body.movieName,
+        "Director": req.body.movieDirector,
+        "Year": req.body.movieYear,
+        "Rating": req.body.movieRating
+    });
+    movie_1.default.updateOne({ _id: id }, updateMovie, function (err) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect('/movie-list');
+    });
 }
 exports.ProcessEditPage = ProcessEditPage;
 function ProcessDeletePage(req, res, next) {

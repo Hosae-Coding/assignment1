@@ -74,7 +74,7 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use('/', indexRouter);
+app.use('/',indexRouter);
 app.use('/',movieListRouter)
 app.use('/',authRouter)
 

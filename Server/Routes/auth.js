@@ -9,7 +9,7 @@ const auth_1 = require("../Controllers/auth");
 router.get('/login', auth_1.DispalyLoginPage);
 router.get('/register', auth_1.DisplayRegisterPage);
 router.post('/login', auth_1.ProcessLoginPage);
-router.get('/register', auth_1.ProcessRegisterPage);
+router.post('/register', auth_1.ProcessRegisterPage);
 router.get('/logout', auth_1.ProcessLogoutPage);
 exports.default = router;
 //# sourceMappingURL=auth.js.map

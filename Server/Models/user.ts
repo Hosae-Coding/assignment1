@@ -26,14 +26,16 @@ const UserSchema = new Schema
 )
 
 
-declare global{
-  export type userDocument=mongoose.Document &{
-
-    username:String,
-    EmailAddress:String,
-    DisplayName:String,
-  }
+declare global
+{
+    export type UserDocument = mongoose.Document &
+    {
+        username: String,
+        EmailAddress: String,
+        DisplayName: String
+    }
 }
+
 
 UserSchema.plugin(passportLocalMongoose);
 

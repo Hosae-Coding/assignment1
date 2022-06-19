@@ -15,7 +15,7 @@ router.get('/register',DisplayRegisterPage );
 router.post('/login', ProcessLoginPage);
 
 
-router.get('/register',ProcessRegisterPage );
+router.post('/register',ProcessRegisterPage );
 
 
 router.get('/logout',ProcessLogoutPage );

@@ -5,7 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const movie_list_1 = require("../Controllers/movie-list");
+const Util_1 = require("../Util");
 const router = express_1.default.Router();
-router.get('/movie-list', movie_list_1.DisplayMovieList);
+router.get('/movie-list', Util_1.AuthGuard, movie_list_1.DisplayMovieList);
 exports.default = router;
 //# sourceMappingURL=movie-list.js.map

@@ -19,12 +19,23 @@ export function DisplayMovieList(req: express.Request, res: express.Response, ne
 
 export function DisplayAddPage(req: express.Request, res: express.Response, next: express.NextFunction) :void
 {
-
+ res.render('index',{title:'Add', page:'edit', movie:'',displayName: UserDisplayName(req) })
 }
 
 export function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction) :void
 {
+ let id = req.params.id
 
+ Movie.findById(id,{},{},function(err,movieToEdit){
+    if(err){
+        console.error(err);
+        res.end(err)
+    }
+
+
+    res.render('index',{title:'Edit', page:'edit', movie: movieToEdit,displayName: UserDisplayName(req) })
+
+ })
 }
 
 export function ProcessAddPage(req: express.Request, res: express.Response, next: express.NextFunction) :void

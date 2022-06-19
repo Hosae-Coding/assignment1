@@ -21,7 +21,7 @@ const UserSchema = new Schema
 
 },
 {
-    collection:"movies"
+    collection:"users"
 }
 )
 

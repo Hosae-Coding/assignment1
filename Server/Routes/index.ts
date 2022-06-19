@@ -20,7 +20,7 @@ router.get('/service',DisplayServicePage );
 
 
 router.get('/contact',DisplayContactPage );
-;
+
 
 
 

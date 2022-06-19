@@ -28,7 +28,7 @@ import authRouter from '../Routes/auth'
 const app = express();
 
 import * as DBConfig from './db';
-mongoose.connect(DBConfig.LocalURI);
+mongoose.connect(DBConfig.RemoteURI);
 const db = mongoose.connection; 
 
 // Step 3 - Listen for Connections or Errors

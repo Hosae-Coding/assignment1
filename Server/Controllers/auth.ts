@@ -5,12 +5,22 @@ import passport from "passport";
 
 import User from '../Models/user'
 
+import {UserDisplayName} from '../Util'
+
 //Dispaly
 export function DispalyLoginPage(req: express.Request, res: express.Response, next: express.NextFunction) {
- res.render('index', {title: "Login", page: "login", messages: req.flash("loginMessage"),displayName:''})
+    if(!req.user){
+
+      return res.render('index', {title: "Login", page: "login", messages: req.flash("loginMessage"), displayName:UserDisplayName(req)})
+    }
+    return res.redirect('/movie-list')
 }
 export function DisplayRegisterPage(req: express.Request, res: express.Response, next: express.NextFunction) {
-    res.render('index', {title:'Register',page:'register',messages:req.flash('registerMessage'),displayName:''})
+    if(!req.user){
+
+       return res.render('index', {title:'Register',page:'register',messages:req.flash('registerMessage'), displayName:UserDisplayName(req)})
+    }
+    return res.redirect('/movie-list')
 }
 
 

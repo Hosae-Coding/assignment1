@@ -28,13 +28,13 @@ import authRouter from '../Routes/auth'
 const app = express();
 
 import * as DBConfig from './db';
-mongoose.connect(DBConfig.RemoteURI);
+mongoose.connect(DBConfig.RemoteURI || DBConfig.LocalURI);
 const db = mongoose.connection; 
 
 // Step 3 - Listen for Connections or Errors
 db.on("open", function()
 {
-  console.log(`Connected to MongoDB at: ${DBConfig.HostName}`);
+  console.log(`Connected to MongoDB at: ${(DBConfig.RemoteURI) ? DBConfig.HostName:'localHost'}`);
 });
 
 db.on("error", function()

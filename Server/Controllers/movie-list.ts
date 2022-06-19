@@ -78,7 +78,7 @@ export function ProcessEditPage(req: express.Request, res: express.Response, nex
 
     //update in database
 
-    Movie.updateOne({_id:id},updateMovie,function(err:ErrorCallback){
+    Movie.updateOne({_id:id},updateMovie,function(err:CallbackError){
 
         if(err)
         {
@@ -94,5 +94,21 @@ export function ProcessEditPage(req: express.Request, res: express.Response, nex
 }
 export function ProcessDeletePage(req: express.Request, res: express.Response, next: express.NextFunction) :void
 {
+
+    let id = req.params.id;
+
+    Movie.remove({_id:id}, function(err:CallbackError){
+        
+        if(err){
+            console.error(err)
+            res.end(err)
+
+        }
+
+        res.redirect('/movie-list')
+
+    })
+
+
 
 }

@@ -2,19 +2,18 @@
    function Start() {
       console.log('App Started!');
 
-      let XHR = new XMLHttpRequest();
+      $("a.delete").on("click",function(e){
 
-      XHR.open('GET', '../data/data.json');
+         if(!confirm("Are you sure?")){
 
-      XHR.send();
-
-      XHR.addEventListener('readystatechange', function () {
-         if (XHR.readyState == 4 && XHR.status == 200) {
-            console.log('JSON Data:');
-            console.log('===========');
-            console.log(XHR.responseText);
+            e.preventDefault();
+            location.href='/movie-list'
          }
-      });
+      })
+
+      
+      
+     
    }
 
    window.addEventListener('load', Start);

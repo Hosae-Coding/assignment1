@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="col-lg-6 col-md-10 col-sm-10"><%= title %> Movie</h1>
+    <h1 class="col-lg-6 col-md-10 col-sm-10"><%= title %> Contact</h1>
     <hr>
     <div id="messageArea"></div>
 
@@ -7,28 +7,28 @@
       <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
 
         <div class="input-group mb-3">
-          <span class="input-group-text">Movie Name</span>
+          <span class="input-group-text">Name</span>
           <input id="movieName" name="movieName" type="text" class="form-control" 
           value="<%= movie.Name %>"
           aria-label="Movie Name" aria-describedby="Movie Name Input" required>
         </div>
 
         <div class="input-group mb-3">
-            <span class="input-group-text">Director Name</span>
+            <span class="input-group-text">Number</span>
             <input id="movieDirector" name="movieDirector" type="text" class="form-control" 
             value="<%= movie.Director %>"
             aria-label="Director Name" aria-describedby="Movie Director Input" required>
           </div>
 
         <div class="input-group mb-3">
-        <span class="input-group-text">Year Released</span>
+        <span class="input-group-text">Email Address</span>
         <input id="movieYear" name="movieYear" type="text" class="form-control" 
         value="<%= movie.Year %>"
         aria-label="Movie Year" aria-describedby="Movie Year Input" required>
         </div>
 
         <div class="input-group mb-3">
-        <span class="input-group-text">Rating</span>
+        <span class="input-group-text">Password</span>
         <input id="movieRating" name="movieRating" type="text" class="form-control" 
         value="<%= movie.Rating %>"
         aria-label="Movie Rating" aria-describedby="Movie Rating Input" required>

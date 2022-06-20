@@ -8,6 +8,8 @@ const UserSchema = new Schema
   DisplayName:String,
   username:String,
   EmailAddress:String,
+  Password:String,
+
   Created:{
     type:Date,
     default:Date.now()

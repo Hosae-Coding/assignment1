@@ -14,7 +14,9 @@ export function DisplayMovieList(req: express.Request, res: express.Response, ne
             console.error(err);
             res.end(err);
         }
-        res.render('index', {title: 'Contact List', page: 'movie-list', movies: moviesCollection , displayName:UserDisplayName(req)});
+        //res.render('index', {title: 'Contact List', page: 'movie-list', movies: moviesCollection , displayName:UserDisplayName(req)});
+
+        res.json({success:true,msg:'Movie-List Dosplated Successfully',movies:moviesCollection, user:req.user})
     });
 }
 

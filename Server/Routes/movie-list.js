@@ -5,13 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const movie_list_1 = require("../Controllers/movie-list");
-const Util_1 = require("../Util");
 const router = express_1.default.Router();
-router.get('/movie-list', Util_1.AuthGuard, movie_list_1.DisplayMovieList);
-router.get('/add', Util_1.AuthGuard, movie_list_1.DisplayAddPage);
-router.get('/edit/:id', Util_1.AuthGuard, movie_list_1.DisplayEditPage);
-router.post('/add', Util_1.AuthGuard, movie_list_1.ProcessAddPage);
-router.post('/edit/:id', Util_1.AuthGuard, movie_list_1.ProcessEditPage);
-router.get('/delete/:id', Util_1.AuthGuard, movie_list_1.ProcessDeletePage);
+router.get('/movie-list', movie_list_1.DisplayMovieList);
+router.get('/add', movie_list_1.DisplayAddPage);
+router.get('/edit/:id', movie_list_1.DisplayEditPage);
+router.post('/add', movie_list_1.ProcessAddPage);
+router.post('/edit/:id', movie_list_1.ProcessEditPage);
+router.get('/delete/:id', movie_list_1.ProcessDeletePage);
 exports.default = router;
 //# sourceMappingURL=movie-list.js.map

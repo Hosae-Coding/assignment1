@@ -7,18 +7,18 @@ const router =express.Router();
 
 
 
-router.get('/movie-list',AuthGuard,DisplayMovieList);
+router.get('/movie-list',DisplayMovieList);
 
-router.get('/add',AuthGuard,DisplayAddPage);
+router.get('/add',DisplayAddPage);
 
-router.get('/edit/:id',AuthGuard,DisplayEditPage);
+router.get('/edit/:id',DisplayEditPage);
 
-router.post('/add',AuthGuard,ProcessAddPage);
+router.post('/add',ProcessAddPage);
 
-router.post('/edit/:id',AuthGuard,ProcessEditPage);
+router.post('/edit/:id',ProcessEditPage);
 
 
-router.get('/delete/:id',AuthGuard,ProcessDeletePage);
+router.get('/delete/:id',ProcessDeletePage);
 
 
 

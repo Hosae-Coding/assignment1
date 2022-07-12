@@ -12,7 +12,7 @@ function DisplayMovieList(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.render('index', { title: 'Movie List', page: 'movie-list', movies: moviesCollection, displayName: (0, Util_1.UserDisplayName)(req) });
+        res.json({ success: true, msg: 'Movie-List Dosplated Successfully', movies: moviesCollection, user: req.user });
     });
 }
 exports.DisplayMovieList = DisplayMovieList;

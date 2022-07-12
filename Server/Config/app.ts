@@ -16,19 +16,19 @@ import cors from 'cors'
 let localStrategy = passportLocal.Strategy;
 
 
-import User from '../Models/user'
+import User from '../Models/user' 
 
 
 
 
-import indexRouter  from '../Routes/index';
+
 import movieListRouter from '../Routes/movie-list'
 import authRouter from '../Routes/auth'
 
 const app = express();
 
 import * as DBConfig from './db';
-mongoose.connect(DBConfig.RemoteURI || DBConfig.LocalURI);
+mongoose.connect((DBConfig.RemoteURI) ? DBConfig.RemoteURI : DBConfig.LocalURI);
 const db = mongoose.connection; 
 
 // Step 3 - Listen for Connections or Errors
@@ -74,9 +74,9 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use('/',indexRouter);
-app.use('/',movieListRouter)
-app.use('/',authRouter)
+
+app.use('/api',movieListRouter)
+app.use('/api',authRouter)
 
 
 

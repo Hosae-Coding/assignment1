@@ -12,6 +12,11 @@ import passportLocal from 'passport-local'
 import flash from 'connect-flash'
 
 import cors from 'cors'
+import passportJWT from 'passport-jwt'
+
+
+let JWTStrategy = passportJWT.Strategy
+let ExtractJWT=passportJWT.ExtractJwt
 
 let localStrategy = passportLocal.Strategy;
 
@@ -74,6 +79,25 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+let jwtOption=
+{
+  jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken(),
+  secretOrKey:DBConfig.Secret
+}
+
+
+let strategy= new JWTStrategy(jwtOption,function(jwt_payload,done){
+
+  User.findById(jwt_payload.id).then(user =>{
+    return done(null,user)
+  }).catch(err=> {
+    return done(err,false)
+  })
+
+})
+
+passport.use(strategy)
 
 app.use('/api',movieListRouter)
 app.use('/api',authRouter)

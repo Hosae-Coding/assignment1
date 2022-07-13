@@ -1,13 +1,10 @@
 import express from 'express';
 const router = express.Router();
 
-import {DispalyLoginPage,DisplayRegisterPage,ProcessLoginPage,ProcessRegisterPage,ProcessLogoutPage} from '../Controllers/auth';
+import {ProcessLoginPage,ProcessRegisterPage,ProcessLogoutPage} from '../Controllers/auth';
 
 
-router.get('/login',DispalyLoginPage);
 
-
-router.get('/register',DisplayRegisterPage );
 
 
 

@@ -4,24 +4,10 @@ import  express  from "express";
 import passport from "passport";
 
 import User from '../Models/user'
+import * as DBConfig from '../Config/db'
+import jwt from 'jsonwebtoken'
 
-import {UserDisplayName} from '../Util'
 
-//Dispaly
-export function DispalyLoginPage(req: express.Request, res: express.Response, next: express.NextFunction) {
-    if(!req.user){
-
-      return res.render('index', {title: "Login", page: "login", messages: req.flash("loginMessage"), displayName:UserDisplayName(req)})
-    }
-    return res.redirect('/movie-list')
-}
-export function DisplayRegisterPage(req: express.Request, res: express.Response, next: express.NextFunction) {
-    if(!req.user){
-
-       return res.render('index', {title:'Register',page:'register',messages:req.flash('registerMessage'), displayName:UserDisplayName(req)})
-    }
-    return res.redirect('/movie-list')
-}
 
 
 //process
@@ -102,5 +88,18 @@ export function ProcessLogoutPage(req: express.Request, res: express.Response, n
   res.redirect('/login')
 };
 
+export function GenerateToken(user:UserDocument):string{
+    const payload={
+        id:user._id,
+        Displayname:user.DisplayName,
+        username:user.username,
+        EmailAddress:user.EmailAddress
+    }
+    const jwtOptions={
+        expiresIn:604800
+    }
 
+
+    return jwt.sign(payload,DBConfig.Secret,jwtOptions)
+}
 

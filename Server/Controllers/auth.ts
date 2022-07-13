@@ -4,10 +4,9 @@ import  express  from "express";
 import passport from "passport";
 
 import User from '../Models/user'
-import * as DBConfig from '../Config/db'
-import jwt from 'jsonwebtoken'
 
 
+import {GenerateToken} from '../Util'
 
 
 //process
@@ -22,8 +21,8 @@ export function ProcessLoginPage(req: express.Request, res: express.Response, ne
         }
 
         if(!user){
-            req.flash('loginMessage','Authentication error')
-            return res.redirect('/login')
+            
+            return res.json({success:false,msg:"Eroor: Authentication failed"})
         }
 
         req.logIn(user,function(err){
@@ -32,8 +31,17 @@ export function ProcessLoginPage(req: express.Request, res: express.Response, ne
                 res.end(err);
             }
 
-            return res.redirect('/movie-list')
+            const authToken = GenerateToken(user)
+
+            return res.json({success:true,msg:"User Logged In successfully",user:{
+                id:user._id,
+                DisplayName:user.DisplayName,
+                username:user.username,
+                EmailAddress:user.EmailAddress
+            }, token:authToken})
         })
+
+        return;
     })(req,res,next)
     
 }
@@ -88,18 +96,6 @@ export function ProcessLogoutPage(req: express.Request, res: express.Response, n
   res.redirect('/login')
 };
 
-export function GenerateToken(user:UserDocument):string{
-    const payload={
-        id:user._id,
-        Displayname:user.DisplayName,
-        username:user.username,
-        EmailAddress:user.EmailAddress
-    }
-    const jwtOptions={
-        expiresIn:604800
-    }
 
 
-    return jwt.sign(payload,DBConfig.Secret,jwtOptions)
-}
 

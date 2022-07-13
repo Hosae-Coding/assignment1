@@ -99,8 +99,8 @@ let strategy= new JWTStrategy(jwtOption,function(jwt_payload,done){
 
 passport.use(strategy)
 
-app.use('/api',movieListRouter)
 app.use('/api',authRouter)
+app.use('/api',passport.authenticate('jwt',{session: false}), movieListRouter)
 
 
 

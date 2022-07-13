@@ -60,23 +60,18 @@ export function ProcessRegisterPage(req: express.Request, res: express.Response,
         {
             if(err.name == 'UserExistsError'){
                 console.log('ERROR:User Already Exists!');
-                req.flash('registerMessage','Registration Error!');
+            
             }
             else{
                 
                 console.error(err.name)
-                req.flash('registerMessage','Server Error!')
+           
             }
-            return res.redirect('/register');
+            return res.json({success:false,msg:"Error: Registeration failed"})
         }
+            
 
-
-
-        //login automatically
-        return passport.authenticate('local')(req,res,function(){
-            return res.redirect('/movie-list')
-        })
-
+        return res.json({success:true, msg:"User Registered Successfily"})
 
 
     })
@@ -93,7 +88,7 @@ export function ProcessLogoutPage(req: express.Request, res: express.Response, n
     }
     console.log('Logout');
   });
-  res.redirect('/login')
+  res.json({success:true,msg:"User Logged out Successfully"})
 };
 
 

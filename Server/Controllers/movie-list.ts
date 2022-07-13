@@ -16,13 +16,13 @@ export function DisplayMovieList(req: express.Request, res: express.Response, ne
         }
         //res.render('index', {title: 'Contact List', page: 'movie-list', movies: moviesCollection , displayName:UserDisplayName(req)});
 
-        res.json({success:true,msg:'Movie-List Dosplated Successfully',movies:moviesCollection, user:req.user})
+        res.json({success:true,msg:'Movie-List Displated Successfully',movies:moviesCollection, user:req.user})
     });
 }
 
 export function DisplayAddPage(req: express.Request, res: express.Response, next: express.NextFunction) :void
 {
- res.render('index',{title:'Add', page:'edit', movie:'',displayName: UserDisplayName(req) })
+  res.json({success:true,msg:'Add Displated Successfully'})
 }
 
 export function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction) :void
@@ -37,7 +37,7 @@ export function DisplayEditPage(req: express.Request, res: express.Response, nex
      res.end(err);
    }
 
-   res.render('index', { title: 'Edit', page: 'edit', movie: movieToEdit, displayName:  UserDisplayName(req) })
+   res.json({success:true,msg:'Add Displated Successfully', movie:movieToEdit})
  });
 }
 
@@ -59,7 +59,7 @@ export function ProcessAddPage(req: express.Request, res: express.Response, next
       res.end(err);
     }
 
-    res.redirect('/movie-list');
+    res.json({success:true,msg:"Successfully added Movie", movie: newMovie})
   })
 
 }
@@ -88,7 +88,7 @@ export function ProcessEditPage(req: express.Request, res: express.Response, nex
           res.end(err);
         }
 
-        res.redirect('/movie-list')
+        res.json({success:true,msg:"Successfully edited Movie", movie: updateMovie})
     
 
     } )
@@ -107,7 +107,7 @@ export function ProcessDeletePage(req: express.Request, res: express.Response, n
 
         }
 
-        res.redirect('/movie-list')
+        res.json({success:true,msg:"Successfully deleted Movie"})
 
     })
 

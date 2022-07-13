@@ -9,14 +9,14 @@ const router =express.Router();
 
 router.get('/movie-list',DisplayMovieList);
 
-router.get('/add',DisplayAddPage);
-
-router.get('/edit/:id',DisplayEditPage);
-
 router.post('/add',ProcessAddPage);
+
+
+router.get('/add',DisplayAddPage);
 
 router.post('/edit/:id',ProcessEditPage);
 
+router.get('/edit/:id',DisplayEditPage);
 
 router.get('/delete/:id',ProcessDeletePage);
 
